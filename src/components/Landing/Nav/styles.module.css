@@ -1,0 +1,15 @@
+.register_btn {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	border-radius: 20px;
+    background-color: #031B88;
+    color: white;
+	width: 180px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+
+}
+
+

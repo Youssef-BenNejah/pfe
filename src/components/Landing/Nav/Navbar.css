@@ -1,0 +1,31 @@
+.nav_item{
+	outline: none;
+	padding: 12px 0;
+	border-radius: 20px;
+  	color: black;
+	width: 180px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+  	text-align: center;
+}
+.nav_btn{
+	padding-top: 12px;
+}
+
+.col-sm-6{
+	display: flex;
+	justify-content: space-around;	
+}
+
+
+.row{
+	display: flex;
+	justify-content: space-between;
+	padding-left: 12%;
+}
+
+.nav_text{
+	color: #6096FD;
+	padding-top: 25px;
+}

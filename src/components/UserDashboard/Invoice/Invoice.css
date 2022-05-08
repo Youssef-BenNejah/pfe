@@ -1,0 +1,38 @@
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+
+.Header{
+    width: 98%;
+    height: 50px;
+}
+
+.button {
+    margin-top: 20px;
+    margin-right: 20px;
+    border: none;
+    background-color: rgb(3,27,136); 
+    font-size: 50px;
+    border: 1px solid black;
+    color:   #fff; 
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+
+}
+
+.download {
+    border: none;
+    background-color: rgb(3,27,136); 
+    font-size: 30px;
+    border: 1px solid black;
+    color:   #fff; 
+    border-radius: 50%;
+    margin-right: 20px;
+
+
+}
