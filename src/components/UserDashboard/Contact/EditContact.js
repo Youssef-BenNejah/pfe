@@ -59,7 +59,7 @@ const EditContact = () => {
         <Header />
         <Link to='/all-contacts'> <span className='las la-arrow-left back'></span></Link>
         <FormGroup className={classes.container}>
-          <Typography variant="h4">Edit Contact</Typography>
+          <Typography variant="h4">Modifier Contact</Typography>
             <FormControl>
                 <InputLabel htmlFor="my-input">Nom</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='nom' value={nom} id="my-input" />

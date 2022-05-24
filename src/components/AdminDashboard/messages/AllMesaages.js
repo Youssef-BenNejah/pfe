@@ -49,7 +49,9 @@ const AllMessages = () => {
     const getAllMessages = async () => {
         let response = await getMessages();
         setMessages(response.data);
+      
     }
+
 
 
     return (
@@ -78,10 +80,15 @@ const AllMessages = () => {
                             <TableCell>{message.message}</TableCell>
                             <TableCell>
                                 {message.etat == "non-repondu" && <div className='etat_check'><span className='status red'></span><p id='p'>non-repondu</p></div>}
-                                {/* {message.etat == "payé" && <div className='etat_check'><span className='status green'></span><p id='p'>payé</p></div>} */}
+                                {message.etat == "repondu" && <div className='etat_check'><span className='status green'></span><p id='p'>repondu</p></div>}
+
                             </TableCell>
                             <TableCell>
-                                <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={`/add-reponse/${message._id}`}>Répondre</Button>
+                               
+                                <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={`/add-reponse/${message._id}`} onClick={()=> setMessages()} >Répondre</Button>
+                               
+                                
+                                
 
                             </TableCell>
 

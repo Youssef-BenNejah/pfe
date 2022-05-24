@@ -51,35 +51,36 @@ const AllExpenses = () => {
         <div className='main-content'>
             <NavBar />
             <Header />
-            <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={"/add-expense"}>Ajouter dépense</Button>
+            <Link to="/add-expense"> <button className='las la-plus button'></button></Link>
 
-            <Table className={classes.table}>
-                <TableHead>
-                    <TableRow className={classes.thead}>
-                        <TableCell>Id</TableCell>
-                        <TableCell>Catégorie</TableCell>
-                        <TableCell>Date de paiement</TableCell>
-                        <TableCell>Etat de paiement</TableCell>
-                        <TableCell>Montant a payer</TableCell>
-                        <TableCell></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {expenses.map((expense) => (
-                        <TableRow className={classes.row} key={expense._id}>
-                            <TableCell>{expense._id}</TableCell>
-                            <TableCell>{expense.Categorie}</TableCell>
-                            <TableCell>{expense.Date_paie}</TableCell>
-                            <TableCell>{expense.Etat_paie}</TableCell>
-                            <TableCell>{expense.Prix}</TableCell>
-                            <TableCell>
-                                <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={`/edit-expense/${expense._id}`}>Edit</Button>
-                                <Button color="secondary" variant="contained" onClick={() => deleteExpenseData(expense._id)}>Delete</Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+            <table id="customers">
+
+                <tr >
+                    <th>Id</th>
+                    <th>Catégorie</th>
+                    <th>Date de paiement</th>
+                    <th>Etat de paiement</th>
+                    <th>Montant a payer</th>
+                    <th>Action</th>
+
+                </tr>
+
+
+                {expenses.map((expense) => (
+                    <tr key={expense._id}>
+                        <td>{expense._id}</td>
+                        <td>{expense.Categorie}</td>
+                        <td>{expense.Date_paie}</td>
+                        <td>{expense.Etat_paie}</td>
+                        <td>{expense.Prix}</td>
+                        <td>
+                            <Button ><span className='aa las la-trash' onClick={() => deleteExpenseData(expense._id)}></span></Button>
+                            <Button component={Link} to={`/edit-expense/${expense._id}`}><span className='aa las la-cog' ></span></Button>
+                        </td>
+                    </tr>
+                ))}
+
+            </table>
         </div>
     )
 }

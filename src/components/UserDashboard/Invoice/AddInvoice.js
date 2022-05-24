@@ -10,8 +10,8 @@ import Header from '../Header'
 
 const initialValue = {
     Num_fact: '',
-    Date_fact: new Date(),
-    Date_paie: new Date(),
+    Date_fact: '',
+    Date_paie: '',
     Type_paie: '',
     Etat_paie:'',
 }

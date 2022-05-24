@@ -54,35 +54,36 @@ const AllArticles = () => {
             <NavBar />
             <Header />
 
-            
-            <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={"/add-article"}>Ajouter article</Button>
 
-            <Table className={classes.table}>
-                <TableHead>
-                    <TableRow className={classes.thead}>
-                        <TableCell>Id</TableCell>
-                        <TableCell>Prix Unitaire HT</TableCell>
-                        <TableCell>Description</TableCell>
-                        <TableCell>Quantite</TableCell>
-                        <TableCell>Total HT</TableCell>
-                        <TableCell></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
+            <Link to="/add-article"> <button className='las la-plus button'></button></Link>
+
+
+            <Table id="customers">
+               
+                    <tr >
+                        <th>Id</th>
+                        <th>Prix Unitaire HT</th>
+                        <th>Description</th>
+                        <th>Quantite</th>
+                        <th>Total HT</th>
+                        <th>Action</th>
+                    </tr>
+                
+               
                     {articles.map((article) => (
-                        <TableRow className={classes.row} key={article._id}>
-                            <TableCell>{article._id}</TableCell>
-                            <TableCell>{article.Prix_Unitaire_HT}</TableCell>
-                            <TableCell>{article.Description}</TableCell>
-                            <TableCell>{article.Quantite}</TableCell>
-                            <TableCell>{article.Prix_Unitaire_HT*article.Quantite}</TableCell>
-                            <TableCell>
-                                <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={`/edit-article/${article._id}`}>Edit</Button>
-                                <Button color="secondary" variant="contained" onClick={() => deleteArticleData(article._id)}>Delete</Button>
-                            </TableCell>
-                        </TableRow>
+                        <tr  key={article._id}>
+                            <td>{article._id}</td>
+                            <td>{article.Prix_Unitaire_HT}</td>
+                            <td>{article.Description}</td>
+                            <td>{article.Quantite}</td>
+                            <td>{article.Prix_Unitaire_HT * article.Quantite}</td>
+                            <td>
+                                <Button ><span className='aa las la-trash' onClick={() => deleteArticleData(article._id)}></span></Button>
+                                <Button component={Link} to={`/edit-article/${article._id}`}><span className='aa las la-cog' ></span></Button>
+                            </td>
+                        </tr>
                     ))}
-                </TableBody>
+               
             </Table>
         </div>
     )

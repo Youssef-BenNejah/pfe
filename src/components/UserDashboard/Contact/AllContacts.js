@@ -46,45 +46,44 @@ const AllContacts = () => {
         let response = await getContacts();
         setContacts(response.data);
     }
-  
+
     return (
         <div className='main-content'>
             <NavBar />
             <Header />
-            <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={"/add-contact"}>Ajouter contact</Button>
+            <Link to="/add-contact"> <button className='las la-plus button'></button></Link>
 
-            <Table className={classes.table}>
-                <TableHead>
-                    <TableRow className={classes.thead}>
-                        <TableCell>Id</TableCell>
-                        <TableCell>Nom</TableCell>
-                        <TableCell>Prénom</TableCell>
-                        <TableCell>Entreprise</TableCell>
-                        <TableCell>Téléphone</TableCell>
-                        <TableCell>Email</TableCell>
-                        <TableCell>Adresse</TableCell>
+            <Table id="customers">
+                
+                    <tr >
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Entreprise</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Adresse</th>
 
-                        <TableCell></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
+                        <th>Action</th>
+                    </tr>
+               
                     {contacts.map((contact) => (
-                        <TableRow className={classes.row} key={contact._id}>
-                            <TableCell>{contact._id}</TableCell>
-                            <TableCell>{contact.nom}</TableCell>
-                            <TableCell>{contact.prenom}</TableCell>
-                            <TableCell>{contact.entreprise}</TableCell>
-                            <TableCell>{contact.telephone}</TableCell>
-                            <TableCell>{contact.email}</TableCell>
-                            <TableCell>{contact.adresse}</TableCell>
+                        <tr  key={contact._id}>
+                            <td>{contact._id}</td>
+                            <td>{contact.nom}</td>
+                            <td>{contact.prenom}</td>
+                            <td>{contact.entreprise}</td>
+                            <td>{contact.telephone}</td>
+                            <td>{contact.email}</td>
+                            <td>{contact.adresse}</td>
 
                             <TableCell>
-                                <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={`/edit-contact/${contact._id}`}>Edit</Button>
-                                <Button color="secondary" variant="contained" onClick={() => deleteContactData(contact._id)}>Delete</Button>
+                                <Button ><span className='aa las la-trash' onClick={() => deleteContactData(contact._id)}></span></Button>
+                                <Button component={Link} to={`/edit-contact/${contact._id}`}><span className='aa las la-cog' ></span></Button>
                             </TableCell>
-                        </TableRow>
+                        </tr>
                     ))}
-                </TableBody>
+                
             </Table>
         </div>
     )

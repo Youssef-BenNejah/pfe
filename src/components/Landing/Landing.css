@@ -275,6 +275,10 @@ header
 .background-header .nav li a.active {
   color: #fba70b!important;
 }
+.header {
+  position: sticky;
+  top: 0;
+}
 
 .header-area {
   position: absolute;
@@ -942,7 +946,8 @@ welcome
 
 
   #h2,
-  #h3{
+  #h3,
+  #h5{
     text-align: center;
   }
 
@@ -963,4 +968,8 @@ welcome
   .main {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .form{
+    width: 100%;
   }

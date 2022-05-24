@@ -64,8 +64,8 @@ function Landing() {
           <nav className="main-nav">
             <img className='logo' src={logo} />
             <ul className="nav">
-              <li className="scroll-to-section"><a href="#welcome" className="menu-item">Home</a></li>
-              <li className="scroll-to-section"><a href="#about" className="menu-item">About</a></li>
+              <li className="scroll-to-section"><a href="#welcome" className="menu-item">Acceuil</a></li>
+              <li className="scroll-to-section"><a href="#about" className="menu-item">Fonctionnalités</a></li>
               <li className="scroll-to-section"><a href="#question" className="menu-item">Contactez-nous</a></li>
               <li>
                 <Link to='/login' >
@@ -88,10 +88,10 @@ function Landing() {
           <div className="container">
             <div className="row">
               <div className="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <h1>The future is  <h1 id="startnow">StartNow</h1></h1>
+                <h1>Le future est  <h1 id="startnow">StartNow</h1></h1>
                 <p>descritpion </p>
                 <Link to='/register' >
-                  <button className='main-button-slider ' id='main-button-slider' > Commencer </button>
+                  <button className='main-button-slider ' id='main-button-slider' > S'inscrire </button>
 
                 </Link>
               </div>
@@ -156,14 +156,14 @@ function Landing() {
 
 
       <section className="section " id="question">
-      <h2 id="h2">Contactez-nous</h2> <br />
-      <h3 id="h3">Si vous avez besoin d'aide, nous sommes prêts</h3>
+      {/* <h2 id="h2">Contactez-nous</h2> <br />
+      <h3 id="h3">Si vous avez besoin d'aide, nous sommes prêts</h3> */}
       <div className='main'>
 
         <div className='form'>
           
         <FormGroup className={classes.container}>
-                      <Typography  variant="h5">Poser votre question ou envoyer nous votre feedback</Typography>
+                      <Typography  variant="h5" id='h5'>Poser votre question ou envoyer nous votre feedback</Typography>
                       <div className='text2'>
                       <FormControl>
                         <InputLabel htmlFor="my-input">Entrer votre nom</InputLabel>

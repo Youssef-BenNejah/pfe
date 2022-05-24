@@ -57,7 +57,7 @@ const EditArticle = () => {
         <Link to='/all-articles'> <span className='las la-arrow-left back'></span></Link>
 
         <FormGroup className={classes.container}>
-           <Typography variant="h4">Edit Article</Typography>
+           <Typography variant="h4">Modifier Article</Typography>
             <FormControl>
                 <InputLabel htmlFor="my-input">Prix Unitaire</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='Prix_Unitaire_HT' value={Prix_Unitaire_HT} id="my-input" />

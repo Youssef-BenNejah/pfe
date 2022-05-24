@@ -56,7 +56,7 @@ const EditInvoice = () => {
         <Header />
         <Link to='/all'> <span className='las la-arrow-left back'></span></Link>
         <FormGroup className={classes.container}>
-         <Typography variant="h4">Edit Invoice</Typography>
+         <Typography variant="h4">Modifier facture</Typography>
             <FormControl>
                 <InputLabel htmlFor="my-input">Numero de facture</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='Num_fact' value={Num_fact} id="my-input" />
@@ -78,7 +78,7 @@ const EditInvoice = () => {
                 <Input onChange={(e) => onValueChange(e)} name='Etat_paie' value={Etat_paie} id="my-input" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => editInvoiceDetails()}>Edit Invoice</Button>
+                <Button variant="contained" color="primary" onClick={() => editInvoiceDetails()}>Modifier facture</Button>
             </FormControl>
         </FormGroup>
         </div>

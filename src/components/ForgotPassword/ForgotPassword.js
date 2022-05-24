@@ -40,7 +40,7 @@ function ForgotPassword() {
   return (
     <div className={styles.container}>
       <form className={styles.form_container} onSubmit={PostData}>
-        <h1>Forgot Password</h1>
+        <h1>Mot de passe oublié</h1>
         <input
           type="email"
           placeholder="Email"

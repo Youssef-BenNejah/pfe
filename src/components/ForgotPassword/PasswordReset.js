@@ -66,7 +66,7 @@ function PasswordReset() {
     return (
         <div className={styles.container}>
             <form className={styles.form_container} onSubmit={PostData}>
-                <h1>Forgot Password</h1>
+                <h1>Réinitialiser le mot de passe</h1>
                 <input
 							type="email"
 							placeholder="Email"

@@ -7,6 +7,9 @@ import NavBar from '../Nav/NavBar';
 import './Invoice.css'
 import jwt from 'jsonwebtoken'
 import Header from '../Header'
+import Download from '../Download'
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 
 
@@ -55,9 +58,33 @@ const AllInvoices = () => {
     setInvoices(response.data);
   }
 
+  const jsPdfGenerator = () => {
+
+    var doc = jsPDF('p', 'pt');
+
+    // doc.text(20, 20, 'this is default text');
+    doc.autoTable({
+      head: [['Id', 'Num_fact', 'Date facture	', 'Date de paiement', 'Type de paiement', 'Etat de paiement']],
+      body: invoices
+
+    })
+
+    console.log(invoices)
+    doc.setFont('courier');
+
+    // doc.text(20, 30, 'This is text with courier font ')
+
+    doc.save('invocie.pdf')
+
+
+  }
+
+
 
   return (
+
     <div className='main-content'>
+
 
       <NavBar />
       <Header />
@@ -69,46 +96,48 @@ const AllInvoices = () => {
 
 
 
-        {/* <Button  color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={"/add"}>Ajouter facture</Button> */}
 
       </div>
 
 
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow className={classes.thead}>
-            <TableCell>Id</TableCell>
-            <TableCell>Num_fact</TableCell>
-            <TableCell>Date facture</TableCell>
-            <TableCell>Date de paiement</TableCell>
-            <TableCell>Type de paiement</TableCell>
-            <TableCell>Etat de paiement</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {invoices.map((invoice) => (
-            <TableRow className={classes.row} key={invoice._id}>
-              <TableCell>{invoice._id}</TableCell>
-              <TableCell>{invoice.Num_fact}</TableCell>
-              <TableCell>{invoice.Date_fact}</TableCell>
-              <TableCell>{invoice.Date_paie}</TableCell>
-              <TableCell>{invoice.Type_paie}</TableCell>
-              <TableCell>{invoice.Etat_paie}</TableCell>
+      <table id="customers">
+
+        <tr >
+          <th>Id</th>
+          <th>Num_fact</th>
+          <th>Date facture</th>
+          <th>Date de paiement</th>
+          <th>Type de paiement</th>
+          <th>Etat de paiement</th>
+          <th>Action</th>
+        </tr>
+
+
+        {invoices.map((invoice) => (
+          <tr key={invoice._id}>
+            <td>{invoice._id}</td>
+            <td>{invoice.Num_fact}</td>
+            <td>{invoice.Date_fact}</td>
+            <td>{invoice.Date_paie}</td>
+            <td>{invoice.Type_paie}</td>
+            <td>{invoice.Etat_paie}</td>
 
 
 
 
-              <TableCell>
-                <span className='las la-arrow-down download'></span>
-                <Button color="primary" variant="contained" style={{ marginRight: 10 }} component={Link} to={`/edit/${invoice._id}`}>Edit</Button>
-                <Button color="secondary" variant="contained" onClick={() => deleteInvoiceData(invoice._id)}>Delete</Button>
+            <td>
 
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+              <span className='las la-arrow-down download' onClick={() => jsPdfGenerator()}></span>
+              <Button ><span className='aa las la-trash' onClick={() => deleteInvoiceData(invoice._id)}></span></Button>
+              <Button component={Link} to={`/edit/${invoice._id}`}><span className='aa las la-cog' ></span></Button>
+
+            </td>
+          </tr>
+        ))}
+
+      </table>
+
+
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import styles from "./styles.module.css";
@@ -46,27 +46,27 @@ function App() {
 		// }
 		if (data.status === 'ok') {
 			history.push('/login');
-			
 
-		}else if(data.status === 'error'){
+
+		} else if (data.status === 'error') {
 			toast.error(data.error, {
-			position: "top-center",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
 			});
 
 		}
 		console.log(data)
 	}
-// const validation = (e)=> {
-// 	setConfirmPassword(e.target.value)
-// 	if ( password != confirmpassword) {
-// 		alert ("error !!!!!!!")
-// 	}
+	// const validation = (e)=> {
+	// 	setConfirmPassword(e.target.value)
+	// 	if ( password != confirmpassword) {
+	// 		alert ("error !!!!!!!")
+	// 	}
 
 
 
@@ -74,45 +74,47 @@ function App() {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-					<h1>Welcome Back</h1>
+					<h1>Bon retour</h1>
 					<Link to="/login">
 						<button type="button" className={styles.white_btn}>
-							Sing in
+							Se connecter
 						</button>
 					</Link>
 				</div>
 				<div className={styles.right}>
 					<form className={styles.form_container} onSubmit={registerUser}>
-						<h1>Create Account</h1>
-						<input
-							type="text"
-							placeholder=" Name"
-							name="name"
-							onChange={(e)=> setName(e.target.value)}
-							value={name}
-							required
-							className={styles.input}
-						/>
+						<h1>Créer un compte</h1>
 						
+							<input
+								type="text"
+								placeholder=" Nom"
+								name="name"
+								onChange={(e) => setName(e.target.value)}
+								value={name}
+								required
+								className={styles.input}
+							/>
+							
 						<input
 							type="email"
 							placeholder="Email"
 							name="email"
-							onChange={(e)=> setEmail(e.target.value)}
+							onChange={(e) => setEmail(e.target.value)}
 							value={email}
 							required
 							className={styles.input}
 						/>
+
 						<input
 							type="password"
-							placeholder="Password"
+							placeholder="Mot de passe"
 							name="password"
-							onChange={(e)=> setPassword(e.target.value)}
+							onChange={(e) => setPassword(e.target.value)}
 							value={password}
-							
+
 							className={styles.input}
 						/>
-							{/* <input
+						{/* <input
 							type="password"
 							placeholder="confirmpassword"
 							name="confirmpassword"
@@ -121,9 +123,9 @@ function App() {
 							
 							className={styles.input}
 						/> */}
-						
+
 						<button type="submit" className={styles.green_btn}  >
-							Sing Up
+							S'inscrire
 						</button>
 						<ToastContainer />
 
@@ -131,7 +133,7 @@ function App() {
 				</div>
 			</div>
 		</div>
-		
+
 	)
 }
 

@@ -67,7 +67,7 @@ function AddMessage() {
                     </div>
                     <FormControl>
                         <InputLabel htmlFor="my-input">votre message</InputLabel>
-                        <Input onChange={(e) => onValueChange(e)} name='message' value={message} id="my-input" />
+                        <Input onChange={(e) => onValueChange(e)} name='message' value={message} id="my-input" type="text-area"/>
                     </FormControl>
                     <FormControl>
                         <Button variant="contained" color="primary" onClick={() => addMessageDetails()}>Envoyer</Button>

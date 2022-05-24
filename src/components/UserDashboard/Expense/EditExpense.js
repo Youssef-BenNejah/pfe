@@ -54,7 +54,7 @@ const EditExpense = () => {
         <Header />
         <Link to='/all-expenses'> <span className='las la-arrow-left back'></span></Link>
         <FormGroup className={classes.container}>
-              <Typography variant="h4">Edit Expense</Typography>
+              <Typography variant="h4">Modifier dépense</Typography>
             <FormControl>
                 <InputLabel htmlFor="my-input">Catégorie</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='Categorie' value={Categorie} id="my-input" />

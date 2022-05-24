@@ -32,8 +32,12 @@ const useStyles = makeStyles({
 const AdminDashboard = () => {
     const [name, setName] = useState('')
     const [users, setUsers] = useState([])
+    
 
     const [count, setCount] = useState(0);
+    const [repondu, setRepondu] = useState(0);
+
+
 
 
     const [messages, setMessages] = useState([]);
@@ -47,6 +51,7 @@ const AdminDashboard = () => {
         }
         getAllMessages();
         getAllUsers();
+        counter();
 
     }, []);
 
@@ -55,11 +60,46 @@ const AdminDashboard = () => {
     const getAllMessages = async () => {
         let response = await getMessages();
         setMessages(response.data);
+        // console.log(response.data[0].etat)
+    }
+    const counter = async () => {
+      let nonRepondu =0;
+      let Repondu =0;
+
+      let response = await getMessages();
+      for (let i = 0; i < response.data.length; i++) {
+        if (response.data[i].etat == "non-repondu") {
+          nonRepondu+=1
+        }
+        else if (response.data[i].etat == "repondu") {
+          Repondu+=1
+
+        }
+        
+      }
+     console.log(nonRepondu)
+     setCount(nonRepondu)
+     console.log(count)
+     setRepondu(Repondu)
     }
     const getAllUsers = async () => {
         let response = await getUsers();
         setUsers(response.data);
+        
+        
     }
+    
+    
+    // const getAllUsersRole = async () => {
+    //     let response = await getUsers();
+    //     setUsers(response.data);
+    //     {response.data.map((user)=>{
+    //       {user.role =='user' && '1'}
+         
+    //     })}
+        
+    // }
+    
 
 
 
@@ -73,7 +113,8 @@ const AdminDashboard = () => {
                 <div className='cards'>
                     <div className='card-single'>
                         <div>
-                            <h1>{users.length}</h1>
+                       
+                            <h1>{users.length-1}</h1>
                             <span>Gérants</span>
                         </div>
                         <div>
@@ -101,7 +142,7 @@ const AdminDashboard = () => {
                             {messages =="non-repondu" && <h1>{messages.length}</h1>}
                      
 
-                            
+                            <h1>{repondu}</h1>
                             <span>Questions repondu</span>
                         </div>
                         <div>
@@ -110,7 +151,8 @@ const AdminDashboard = () => {
                     </div>
                     <div className='card-single'>
                         <div>
-                            <h1>4</h1>
+                         
+                            <h1>{count}</h1>
                             <span>Questions non repondu</span>
                         </div>
                         <div>
@@ -141,7 +183,7 @@ const AdminDashboard = () => {
                       </thead>
                       <tbody>
                         
-                        {messages.slice(0, 3).map((message) => (
+                        {messages.slice(0, 2).map((message) => (
                           <tr>
                             <td>{message.name}</td>
                             <td>{message.email}</td>
@@ -174,7 +216,7 @@ const AdminDashboard = () => {
                     <div className='info'>
                       <span className='las la-user'></span>
                       <div>
-                        <h4>{user.name}</h4>
+                        <h4>{user.role == 'user' && user.name}</h4>
                         {/* <small>{contact.entreprise}</small> */}
                       </div>
                     </div>

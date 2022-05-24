@@ -14,7 +14,11 @@
 	left: 0;
 	top: 0;
 	height: 100%;
-    background: #dd2f6e;
+    background: rgb(255,58,87);
+    background: linear-gradient(30deg, rgba(255,58,87,1) 45%, rgba(250,167,184,1) 69%, rgba(255,255,255,1) 100%)
+}
+img{
+    margin-top: 200px;
 }
 
 
@@ -120,7 +124,8 @@ header label span {
     padding-bottom:1rem ;
     color: rgb(3,27,136);    
     border-radius: 30px 0px 0px 30px;  
-    margin-left: 1rem;
+    margin-left: 0;
+    width: 90%;
  
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
-import { addReponse, editMessage } from '../../../Service/service';
+import { addReponse, editMessage, getMessages } from '../../../Service/service';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import NavBar from '../Nav/Navbar';
 import jwt from 'jsonwebtoken'
@@ -11,6 +11,9 @@ import Header from '../Header'
 const initialValue = {
     email: '',
     reponse: ''
+}
+const init = {
+    etat :''
 }
 
 const useStyles = makeStyles({
@@ -35,8 +38,11 @@ const useStyles = makeStyles({
 
 const Reponse = () => {
     const [reponses, setReponses] = useState(initialValue);
+    const [rep, setRep] = useState(init);
+    const { id } = useParams();
 
-
+    const [etat,setEtat] = useState('')
+ 
     const { email, reponse, } = reponses;
     let navigate = useHistory();
 
@@ -47,11 +53,23 @@ const Reponse = () => {
     const classes = useStyles();
 
     const addReponseDetails = async () => {
-        await addReponse(reponses); 
+        await addReponse(reponses);
+        let response = await getMessages(id);
+        console.log(response.data[0])
+        response.data[0].etat='repondu'
+        setRep(response.data[0].etat)
         console.log(reponses);
 
         // navigate.push('/all-reponses');
     }
+
+    // const changeEtat = async () => {
+    //     let response = await getMessages();
+    //     setEtat('repondu')
+    //     // response.data[0].etat="repondu"
+        
+    //     console.log(response.data[0].etat)
+    // }
 
     return (
         <div className='main-content'>

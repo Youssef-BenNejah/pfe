@@ -105,6 +105,7 @@ const AllInvoices = () => {
           <TableRow className={classes.thead}>
             <TableCell>Nom</TableCell>
             <TableCell>Email</TableCell>
+     
 
             <TableCell></TableCell>
           </TableRow>

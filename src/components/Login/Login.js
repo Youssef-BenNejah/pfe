@@ -56,7 +56,7 @@ function Login() {
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={loginUser}>
-						<h1>Login to Your Account</h1>
+						<h1>Connectez-vous à votre compte</h1>
 						<input
 							type="email"
 							placeholder="Email"
@@ -68,7 +68,7 @@ function Login() {
 						/>
 						<input
 							type="password"
-							placeholder="Password"
+							placeholder="Mot de passe"
 							name="password"
 							onChange={(e)=> setPassword(e.target.value)}
 							value={password}
@@ -76,19 +76,19 @@ function Login() {
 							className={styles.input}
 						/>
 						<Link to="/reset-password" style={{ alignSelf: "flex-start" }}>
-							<p style={{ padding: "0 15px" }}>Forgot Password ?</p>
+							<p style={{ padding: "0 15px" }}>Mot de passe oublié ?</p>
 						</Link>
 						{/* {error && <div className={styles.error_msg}>{error}</div>} */}
 						<button type="submit" className={styles.green_btn}>
-							Sing In
+							Se connecter
 						</button>
 					</form>
 				</div>
 				<div className={styles.right}>
-					<h1>New Here ?</h1>
+					<h1>Nouveau ?</h1>
 					<Link to="/register">
 						<button type="button" className={styles.white_btn} >
-							Sing Up
+							S'inscrire
 						</button>
 						<ToastContainer />
 

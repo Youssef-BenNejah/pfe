@@ -43,7 +43,7 @@ function NavBar() {
         <>
 <div className='sidebar'>
         <div className='sidebar-brand'>
-          <h1><span className='las la-accusoft'></span>StartNow</h1>
+          <h1><span className='las la-accusoft'></span><img src={logo}/></h1>
         </div>
         <div className='sidebar-menu'>
           <ul>
